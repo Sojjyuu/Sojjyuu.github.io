@@ -3,54 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirati Suwanpusit</title>
+    <title>Kirati Suwanpusit | Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             color: #333;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px;
         }
-        .profile {
-            max-width: 400px;
-            margin: auto;
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #aaa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
             background-color: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
-        img {
+        .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
+            display: block;
+            margin: 0 auto 20px;
         }
-        h1 {
-            margin-bottom: 5px;
+        .info {
+            text-align: center;
         }
-        p {
-            margin: 6px 0;
+        .info h2 {
+            margin: 10px 0;
+            font-size: 1.8em;
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        .social {
+            margin-top: 15px;
         }
         .social a {
-            margin: 0 10px;
             text-decoration: none;
             color: #007bff;
+            margin: 0 10px;
+        }
+        .social a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <div class="profile">
-        <img src="Ai.jpg" alt="Profile Picture">
+
+    <header>
         <h1>Kirati Suwanpusit</h1>
-        <p><strong>Student ID:</strong> 663450172-5</p>
-        <p><strong>Major:</strong> CIS</p>
-        <p><strong>Email:</strong> <a href="mailto:Kirati.su@kkumail.com">Kirati.su@kkumail.com</a></p>
-        <div class="social">
-            <a href="https://www.facebook.com/suwan.timcdma/" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/smth_yu/" target="_blank">Instagram</a>
+        <p>Computer Information System Student at KKU</p>
+    </header>
+
+    <div class="container">
+        <img src="kirati.jpg" alt="Kirati Suwanpusit" class="profile-img">
+        <div class="info">
+            <h2>About Me</h2>
+            <p><strong>Student ID:</strong> 663450172-5</p>
+            <p><strong>Email:</strong> <a href="mailto:Kirati.su@kkumail.com">Kirati.su@kkumail.com</a></p>
+            <p><strong>Major:</strong> CIS (Computer Information Systems)</p>
+            <div class="social">
+                <a href="https://www.facebook.com/SanDy" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/smth_yu" target="_blank">Instagram</a>
+            </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2025 Kirati Suwanpusit. All rights reserved.
+    </footer>
+
 </body>
 </html>
