@@ -1,100 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirati Suwanpusit | Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-        header {
-            background-color: #222;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-            color: #aaa;
-        }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        .info {
-            text-align: center;
-        }
-        .info h2 {
-            margin: 10px 0;
-            font-size: 1.8em;
-        }
-        .info p {
-            margin: 5px 0;
-        }
-        .social {
-            margin-top: 15px;
-        }
-        .social a {
-            text-decoration: none;
-            color: #007bff;
-            margin: 0 10px;
-        }
-        .social a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kirati Suwanpusit | Portfolio</title>
+
+  <!-- Font Awesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("mybg.jpg"); /* เปลี่ยนชื่อรูปตามต้องการ */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #222;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      border: 5px solid #007acc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .info {
+      text-align: center;
+    }
+
+    .info h2 {
+      margin: 10px 0;
+      font-size: 1.8em;
+    }
+
+    .info p {
+      margin: 6px 0;
+    }
+
+    .social {
+      margin-top: 18px;
+    }
+
+    .social a {
+      margin: 0 10px;
+      font-size: 1.8em;
+      color: #007acc;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: #005b99;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #f0f0f0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Kirati Suwanpusit</h1>
-        <p>Computer Information Science Student at KKU</p>
-    </header>
+  <header>
+    <h1>Kirati Suwanpusit</h1>
+    <p>Computer Information Science Student at KKU</p>
+  </header>
 
-    <div class="container">
-        <img src="Ai.jpg" alt="Kirati Suwanpusit" class="profile-img">
-        <div class="info">
-            <h2>About Me</h2>
-            <p><strong>Student ID:</strong> 663450172-5</p>
-            <p><strong>Email:</strong> <a href="mailto:Kirati.su@kkumail.com">Kirati.su@kkumail.com</a></p>
-            <p><strong>Major:</strong> CIS (Computer Information Science)</p>
-            <div class="social">
-                <a href="https://www.facebook.com/suwan.timcdma/" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/smth_yu" target="_blank">Instagram</a>
-            </div>
-        </div>
+  <div class="container">
+    <img src="Ai.jpg" alt="Kirati Suwanpusit" class="profile-img">
+    <div class="info">
+      <h2>About Me</h2>
+      <p><strong>Student ID:</strong> 663450172-5</p>
+      <p><strong>Email:</strong> <a href="mailto:Kirati.su@kkumail.com">Kirati.su@kkumail.com</a></p>
+      <p><strong>Major:</strong> CIS (Computer Information Science)</p>
+      <div class="social">
+        <a href="https://www.facebook.com/suwan.timcdma/" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://www.instagram.com/smth_yu" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <footer>
-        &copy; 2025 Kirati Suwanpusit. All rights reserved.
-    </footer>
+  <footer>
+    &copy; 2025 Kirati Suwanpusit. All rights reserved.
+  </footer>
 
 </body>
 </html>
