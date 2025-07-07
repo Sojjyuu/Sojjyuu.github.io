@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .calculator-container {
+      text-align: center;
+    }
+
+    .calculator-container h1 {
+      color: white;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .calculator {
+      max-width: 320px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #f0f0f0, #cacaca);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .display {
+      width: 100%;
+      height: 80px;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: right;
+      padding: 0 15px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      box-shadow: 
+        inset 0 4px 8px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(255, 255, 255, 0.8);
+      color: #333;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .btn {
+      height: 60px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: linear-gradient(145deg, #f0f0f0, #cacaca);
+      box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+      color: #333;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 
+        inset 0 4px 8px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .btn.operator {
+      background: linear-gradient(145deg, #007acc, #005b99);
+      color: white;
+    }
+
+    .btn.operator:hover {
+      background: linear-gradient(145deg, #005b99, #004080);
+    }
+
+    .btn.equals {
+      background: linear-gradient(145deg, #28a745, #1e7e34);
+      color: white;
+    }
+
+    .btn.equals:hover {
+      background: linear-gradient(145deg, #1e7e34, #155724);
+    }
+
+    .btn.clear {
+      background: linear-gradient(145deg, #dc3545, #c82333);
+      color: white;
+    }
+
+    .btn.clear:hover {
+      background: linear-gradient(145deg, #c82333, #a71e2a);
+    }
+
+    .btn.zero {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 480px) {
+      .calculator {
+        max-width: 280px;
+      }
+      
+      .btn {
+        height: 50px;
+        font-size: 1em;
+      }
+      
+      .display {
+        height: 60px;
+        font-size: 1.5em;
+      }
+
+      .calculator-container h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Calculator</h1>
+    <div class="calculator">
+      <input type="text" class="display" id="display" readonly>
+      <div class="buttons">
+        <button class="btn clear" onclick="clearCalculator()">C</button>
+        <button class="btn" onclick="deleteLast()">⌫</button>
+        <button class="btn operator" onclick="inputOperator('/')">/</button>
+        <button class="btn operator" onclick="inputOperator('*')">×</button>
+        
+        <button class="btn" onclick="inputNumber('7')">7</button>
+        <button class="btn" onclick="inputNumber('8')">8</button>
+        <button class="btn" onclick="inputNumber('9')">9</button>
+        <button class="btn operator" onclick="inputOperator('-')">-</button>
+        
+        <button class="btn" onclick="inputNumber('4')">4</button>
+        <button class="btn" onclick="inputNumber('5')">5</button>
+        <button class="btn" onclick="inputNumber('6')">6</button>
+        <button class="btn operator" onclick="inputOperator('+')">+</button>
+        
+        <button class="btn" onclick="inputNumber('1')">1</button>
+        <button class="btn" onclick="inputNumber('2')">2</button>
+        <button class="btn" onclick="inputNumber('3')">3</button>
+        <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+        
+        <button class="btn zero" onclick="inputNumber('0')">0</button>
+        <button class="btn" onclick="inputDecimal()">.</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
