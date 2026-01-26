@@ -6,30 +6,30 @@
     <title>1987 | Sojjyuu Portfolio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=VT323&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Noto+Serif+JP:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #ff0044;       /* neon red */
-            --accent: #00f0ff;        /* cyan neon */
-            --dark: #0a0a1f;
-            --glass: rgba(20, 20, 40, 0.75);
-            --text: #e0e0ff;
+            --primary: #6b9e78;       /* soft green Ghibli forest */
+            --accent: #a8d0db;        /* sky blue pastel */
+            --bg-cream: #f5f0e9;
+            --text-dark: #4a4a4a;
+            --glass: rgba(255, 255, 255, 0.65);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Poppins', 'Kanit', sans-serif;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/background.gif') no-repeat center center fixed;
+            background: linear-gradient(rgba(245,240,233,0.4), rgba(245,240,233,0.4)), url('./assets/background.jpg') no-repeat center center fixed;
             background-size: cover;
             background-attachment: fixed;
-            color: var(--text);
+            color: var(--text-dark);
             min-height: 100vh;
         }
 
         header {
-            padding: 120px 20px 80px;
+            padding: 140px 20px 100px;
             text-align: center;
             position: relative;
         }
@@ -38,7 +38,7 @@
             position: relative;
             width: 220px;
             height: 220px;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
         }
 
         .profile-img {
@@ -46,197 +46,204 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--primary);
-            box-shadow: 0 0 40px var(--primary), 0 0 80px rgba(255,0,68,0.4);
-            transition: all 0.4s;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
         }
 
         .profile-img:hover {
-            transform: scale(1.08) rotate(5deg);
-            box-shadow: 0 0 60px var(--primary), 0 0 120px rgba(255,0,68,0.6);
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(107,158,120,0.4);
         }
 
         header h1 {
-            font-family: 'VT323', monospace;
-            font-size: 5rem;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 4.5rem;
             color: var(--primary);
-            text-shadow: 0 0 20px var(--primary), 0 0 40px rgba(255,0,68,0.5);
             margin: 10px 0;
-            letter-spacing: 8px;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 8px rgba(107,158,120,0.3);
         }
 
         header .subtitle {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: #5a5a5a;
+            margin-bottom: 15px;
         }
 
         header .quote {
-            font-family: 'VT323', monospace;
-            font-size: 1.5rem;
-            color: #ffcc00;
-            margin: 20px 0;
-            text-shadow: 0 0 10px #ffcc00;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.6rem;
+            color: #8a6d3b;
+            margin: 25px 0;
+            font-style: italic;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
 
         .stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
+            gap: 50px;
+            margin: 30px 0;
         }
 
         .stat-box {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            border-radius: 15px;
-            border: 1px solid var(--primary);
-            box-shadow: 0 0 20px rgba(255,0,68,0.3);
+            backdrop-filter: blur(8px);
+            padding: 18px 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(107,158,120,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(107,158,120,0.25);
         }
 
         .stat-box .number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: bold;
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 25px;
         }
 
         .section {
             background: var(--glass);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255,0,68,0.2);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 45px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(168,208,219,0.4);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
 
         .section h2 {
-            font-family: 'VT323', monospace;
+            font-family: 'Noto Serif JP', serif;
             color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
         }
 
         .skill-tag {
-            background: rgba(0,240,255,0.15);
-            color: var(--accent);
-            padding: 10px 20px;
-            border-radius: 50px;
+            background: rgba(168,208,219,0.25);
+            color: #4a6c5e;
+            padding: 10px 22px;
+            border-radius: 30px;
             border: 1px solid var(--accent);
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .skill-tag:hover {
-            background: rgba(0,240,255,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,240,255,0.4);
+            background: rgba(168,208,219,0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(168,208,219,0.3);
         }
 
         .project-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
         }
 
         .project-card {
-            background: rgba(10,10,31,0.8);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid var(--primary);
-            transition: all 0.4s;
+            background: #fffef9;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(107,158,120,0.2);
+            transition: all 0.4s ease;
             text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255,0,68,0.3);
-            border-color: var(--accent);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(107,158,120,0.25);
+            border-color: var(--primary);
         }
 
         .project-card img, .project-card .icon-placeholder {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            border-radius: 14px;
+            margin-bottom: 18px;
         }
 
         .project-card .icon-placeholder {
-            font-size: 6rem;
+            font-size: 7rem;
             color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 180px;
         }
 
         .btn {
             background: var(--primary);
             color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 18px;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255,0,68,0.4);
+            box-shadow: 0 4px 12px rgba(107,158,120,0.3);
         }
 
         .btn:hover {
-            background: var(--accent);
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,240,255,0.6);
+            background: #5a8c68;
+            transform: scale(1.06);
+            box-shadow: 0 8px 20px rgba(107,158,120,0.4);
         }
 
         .social {
             text-align: center;
-            margin: 40px 0;
+            margin: 50px 0;
         }
 
         .social a {
-            font-size: 2.2rem;
-            color: var(--text);
-            margin: 0 18px;
+            font-size: 2.4rem;
+            color: #6b6b6b;
+            margin: 0 20px;
             transition: all 0.3s;
         }
 
         .social a:hover {
             color: var(--primary);
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #888;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 50px 20px;
+            color: #777;
+            font-size: 1rem;
+            border-top: 1px solid rgba(107,158,120,0.2);
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 3.5rem; }
-            .stats { flex-direction: column; gap: 20px; }
+            header h1 { font-size: 3.2rem; }
+            .stats { flex-direction: column; gap: 25px; }
         }
     </style>
 </head>
@@ -289,12 +296,11 @@
 
         <div class="section">
             <h2><i class="fas fa-briefcase"></i> Experience & Certificates</h2>
-            <ul style="list-style: none; line-height: 2;">
+            <ul style="list-style: none; line-height: 2; padding-left: 20px;">
                 <li>• Phishing Analysis Research (YouTuber Attacks, 202X)</li>
                 <li>• Flutter Mobile App Development (Personal Projects)</li>
                 <li>• Web Development & JS Projects</li>
                 <li>• [Certificate] Google IT Support / Cybersecurity (ถ้ามีใส่เพิ่ม)</li>
-                <!-- เพิ่มตามจริงได้เลย -->
             </ul>
         </div>
 
@@ -304,23 +310,22 @@
                 <div class="project-card">
                     <img src="cal.png" alt="Web Calculator">
                     <h4>Web Calculator</h4>
-                    <p>Simple interactive calculator with HTML, CSS, JS.</p>
-                    <a href="cal.html" class="btn">Open Project</a>
+                    <p>เครื่องคิดเลขเว็บง่าย ๆ สร้างด้วย HTML, CSS, JS</p>
+                    <a href="cal.html" class="btn">เปิดโปรเจกต์</a>
                 </div>
 
                 <div class="project-card">
                     <div class="icon-placeholder"><i class="fas fa-shield-halved"></i></div>
                     <h4>Phishing Research</h4>
-                    <p>Deep analysis of phishing techniques targeting YouTubers.</p>
-                    <span style="color: var(--accent); font-weight: bold;">Network Security</span>
+                    <p>วิเคราะห์การโจมตี phishing ที่มุ่งเป้า YouTuber</p>
+                    <span style="color: var(--primary); font-weight: bold;">Network Security</span>
                 </div>
 
-                <!-- เพิ่ม Flutter project ได้ตรงนี้ -->
                 <div class="project-card">
                     <div class="icon-placeholder"><i class="fab fa-flutter"></i></div>
                     <h4>Flutter Mobile App</h4>
-                    <p>Personal mobile project (เพิ่ม screenshot หรือ link repo ถ้ามี).</p>
-                    <a href="#" class="btn">View Details</a>
+                    <p>โปรเจกต์แอพมือถือส่วนตัว (เพิ่มรูปหรือลิงก์ repo ถ้ามี)</p>
+                    <a href="#" class="btn">ดูรายละเอียด</a>
                 </div>
             </div>
         </div>
@@ -334,7 +339,7 @@
     </div>
 
     <footer>
-        © 2026 1987 | Built in the Neon Rain • CIS KKU
+        © 2026 1987 | Built with Gentle Breeze • CIS KKU
     </footer>
 
 </body>
