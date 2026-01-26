@@ -3,191 +3,271 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Kirati Suwanpusit | CIS Portfolio</title>
+    <title>1987 | Sojjyuu Portfolio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=VT323&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #007acc;
-            --accent: #00d2ff;
-            --glass: rgba(255, 255, 255, 0.92);
+            --primary: #ff0044;       /* neon red */
+            --accent: #00f0ff;        /* cyan neon */
+            --dark: #0a0a1f;
+            --glass: rgba(20, 20, 40, 0.75);
+            --text: #e0e0ff;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            margin: 0;
             font-family: 'Poppins', 'Kanit', sans-serif;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("mybg.jpg"); 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/background.gif') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             background-attachment: fixed;
-            color: #333;
+            color: var(--text);
+            min-height: 100vh;
         }
 
         header {
-            padding: 80px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
-            color: white;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: relative;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3.2rem;
-            font-weight: 600;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: -50px auto 50px;
-            background-color: var(--glass);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
+        .avatar-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            margin-top: -100px;
-            transition: 0.3s;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 40px var(--primary), 0 0 80px rgba(255,0,68,0.4);
+            transition: all 0.4s;
         }
 
         .profile-img:hover {
-            transform: scale(1.05);
-            border-color: var(--primary);
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 0 60px var(--primary), 0 0 120px rgba(255,0,68,0.6);
         }
 
-        .info h2 {
+        header h1 {
+            font-family: 'VT323', monospace;
+            font-size: 5rem;
             color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            text-shadow: 0 0 20px var(--primary), 0 0 40px rgba(255,0,68,0.5);
+            margin: 10px 0;
+            letter-spacing: 8px;
         }
 
-        /* Skill Badges */
-        .skills-grid {
+        header .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        header .quote {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #ffcc00;
+        }
+
+        .stats {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 40px;
             margin: 20px 0;
         }
 
-        .skill-tag {
-            background: #eef6fc;
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid #d0e5f5;
+        .stat-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 20px rgba(255,0,68,0.3);
+            text-align: center;
         }
 
-        /* Project Cards */
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,0,68,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .section h2 {
+            font-family: 'VT323', monospace;
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(0,240,255,0.15);
+            color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--accent);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0,240,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,240,255,0.4);
+        }
+
         .project-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
 
         .project-card {
-            background: white;
+            background: rgba(10,10,31,0.8);
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid #eee;
-            transition: 0.3s;
+            border: 1px solid var(--primary);
+            transition: all 0.4s;
             text-align: center;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255,0,68,0.3);
+            border-color: var(--accent);
         }
 
-        .project-card img {
+        .project-card img, .project-card .icon-placeholder {
             width: 100%;
+            height: 160px;
+            object-fit: cover;
             border-radius: 10px;
             margin-bottom: 15px;
         }
 
+        .project-card .icon-placeholder {
+            font-size: 6rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .btn {
-            display: inline-block;
-            background-color: var(--primary);
+            background: var(--primary);
             color: white;
-            padding: 10px 25px;
-            border-radius: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
-            margin-top: 10px;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255,0,68,0.4);
         }
 
         .btn:hover {
-            background-color: #005b99;
-            box-shadow: 0 5px 15px rgba(0,122,204,0.3);
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,240,255,0.6);
+        }
+
+        .social {
+            text-align: center;
+            margin: 40px 0;
         }
 
         .social a {
-            margin: 0 12px;
-            font-size: 2rem;
-            color: #555;
-            transition: 0.3s;
+            font-size: 2.2rem;
+            color: var(--text);
+            margin: 0 18px;
+            transition: all 0.3s;
         }
 
         .social a:hover {
             color: var(--primary);
+            transform: scale(1.2);
         }
 
         footer {
             text-align: center;
-            padding: 40px 0;
-            color: white;
-            font-size: 0.9rem;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 3.5rem; }
+            .stats { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Kirati Suwanpusit</h1>
-        <p>Computer Information Science | KKU Nong Khai</p>
+        <div class="avatar-container">
+            <img src="profile.jpg" alt="1987" class="profile-img">
+        </div>
+        <h1>1987</h1>
+        <p class="subtitle">18/03/200X • CIS • KKU Nong Khai</p>
+        <p class="quote">"Let's get married when we grow up."</p>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="number">5</div>
+                <div>Followers</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">21</div>
+                <div>Projects</div>
+            </div>
+        </div>
     </header>
 
     <div class="container">
-        <div class="profile-section">
-            <img src="Ai.jpg" alt="Kirati" class="profile-img">
-            <div class="social">
-                <a href="https://github.com/sojjyuu" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/suwan.timcdma/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/smth_yu" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-
-        <div class="info">
+        <div class="section">
             <h2><i class="fas fa-user-circle"></i> About Me</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
-                <p><strong><i class="fas fa-id-card"></i> ID:</strong> 663450172-5</p>
-                <p><strong><i class="fas fa-envelope"></i> Email:</strong> Kirati.su@kkumail.com</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                <p><strong>ID:</strong> 663450172-5</p>
+                <p><strong>Email:</strong> Kirati.su@kkumail.com</p>
             </div>
 
             <h3><i class="fas fa-code"></i> Technical Skills</h3>
@@ -198,27 +278,63 @@
                 <span class="skill-tag">Data Preparation</span>
                 <span class="skill-tag">Postman (Newman)</span>
             </div>
+        </div>
 
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <p><strong>B.Sc. Computer Information Science (CIS)</strong></p>
+            <p>Khon Kaen University, Nong Khai Campus</p>
+            <p>Student ID: 663450172-5 • Expected Graduation: 202X</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Experience & Certificates</h2>
+            <ul style="list-style: none; line-height: 2;">
+                <li>• Phishing Analysis Research (YouTuber Attacks, 202X)</li>
+                <li>• Flutter Mobile App Development (Personal Projects)</li>
+                <li>• Web Development & JS Projects</li>
+                <li>• [Certificate] Google IT Support / Cybersecurity (ถ้ามีใส่เพิ่ม)</li>
+                <!-- เพิ่มตามจริงได้เลย -->
+            </ul>
+        </div>
+
+        <div class="section">
             <h2><i class="fas fa-laptop-code"></i> Featured Projects</h2>
             <div class="project-container">
                 <div class="project-card">
-                    <img src="cal.png" alt="Calculator">
+                    <img src="cal.png" alt="Web Calculator">
                     <h4>Web Calculator</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Simple tool built with HTML, CSS, and JS.</p>
+                    <p>Simple interactive calculator with HTML, CSS, JS.</p>
                     <a href="cal.html" class="btn">Open Project</a>
                 </div>
+
                 <div class="project-card">
-                    <div style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"><i class="fas fa-shield-halved"></i></div>
+                    <div class="icon-placeholder"><i class="fas fa-shield-halved"></i></div>
                     <h4>Phishing Research</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Analysis of YouTuber Phishing attacks.</p>
-                    <span style="font-size: 0.8rem; color: var(--primary);">Network Security</span>
+                    <p>Deep analysis of phishing techniques targeting YouTubers.</p>
+                    <span style="color: var(--accent); font-weight: bold;">Network Security</span>
+                </div>
+
+                <!-- เพิ่ม Flutter project ได้ตรงนี้ -->
+                <div class="project-card">
+                    <div class="icon-placeholder"><i class="fab fa-flutter"></i></div>
+                    <h4>Flutter Mobile App</h4>
+                    <p>Personal mobile project (เพิ่ม screenshot หรือ link repo ถ้ามี).</p>
+                    <a href="#" class="btn">View Details</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="social">
+        <a href="https://steamcommunity.com/id/YOURID" target="_blank"><i class="fab fa-steam"></i></a>
+        <a href="https://github.com/sojjyuu" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/smth_yu" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/suwan.timcdma/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
     <footer>
-        &copy; 2026 Kirati Suwanpusit. Built with Passion in CIS.
+        © 2026 1987 | Built in the Neon Rain • CIS KKU
     </footer>
 
 </body>
