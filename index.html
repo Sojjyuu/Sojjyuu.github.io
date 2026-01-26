@@ -10,11 +10,10 @@
 
     <style>
         :root {
-            --primary: #ff0044;
-            --accent: #00f0ff;
-            --bg-dark: #050510;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary: #ff0044;       /* neon red */
+            --accent: #00f0ff;        /* cyan neon */
+            --dark: #0a0a1f;
+            --glass: rgba(20, 20, 40, 0.75);
             --text: #e0e0ff;
         }
 
@@ -22,185 +21,320 @@
 
         body {
             font-family: 'Poppins', 'Kanit', sans-serif;
-            background: radial-gradient(circle at top right, #1a0b2e, var(--bg-dark));
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/background.gif') no-repeat center center fixed;
+            background-size: cover;
             background-attachment: fixed;
             color: var(--text);
-            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* --- New Layout Header --- */
-        .header-container {
-            max-width: 1000px;
-            margin: 80px auto 40px;
-            padding: 40px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center; /* จัดกลางในแนวตั้ง */
-            gap: 50px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        }
-
-        .profile-side {
-            flex-shrink: 0; /* รูปจะไม่ถูกบีบ */
-        }
-
-        .content-side {
-            flex-grow: 1;
-            text-align: left; /* ข้อความชิดซ้าย */
-        }
-
-        .avatar-wrapper {
-            width: 200px;
-            height: 200px;
+        header {
+            padding: 120px 20px 80px;
+            text-align: center;
             position: relative;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
         }
 
         .profile-img {
             width: 100%;
             height: 100%;
-            border-radius: 24%; /* ทรงสี่เหลี่ยมโค้งมนแบบโมเดิร์น */
+            border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 30px rgba(255,0,68,0.3);
-            transition: 0.5s ease;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 40px var(--primary), 0 0 80px rgba(255,0,68,0.4);
+            transition: all 0.4s;
         }
 
         .profile-img:hover {
-            transform: translateY(-10px) rotate(-3deg);
-            border-color: var(--accent);
-            box-shadow: 0 0 40px rgba(0,240,255,0.4);
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 0 60px var(--primary), 0 0 120px rgba(255,0,68,0.6);
         }
 
-        h1 {
+        header h1 {
             font-family: 'VT323', monospace;
-            font-size: 4.5rem;
+            font-size: 5rem;
             color: var(--primary);
-            margin-bottom: 5px;
-            letter-spacing: 5px;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+            text-shadow: 0 0 20px var(--primary), 0 0 40px rgba(255,0,68,0.5);
+            margin: 10px 0;
+            letter-spacing: 8px;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
+        header .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        header .quote {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #ffcc00;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 20px rgba(255,0,68,0.3);
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: bold;
             color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .quote {
-            font-style: italic;
-            opacity: 0.7;
-            margin-top: 15px;
-            border-left: 3px solid var(--primary);
-            padding-left: 15px;
-        }
-
-        /* --- Sections --- */
-        .main-content {
+        .container {
             max-width: 1000px;
             margin: 0 auto 60px;
             padding: 0 20px;
         }
 
-        .glass-card {
+        .section {
             background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,0,68,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
-        h2 {
+        .section h2 {
             font-family: 'VT323', monospace;
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
         }
 
-        .skills-flex {
+        .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            justify-content: center;
         }
 
-        .skill-item {
-            background: rgba(255,255,255,0.05);
-            padding: 8px 18px;
+        .skill-tag {
+            background: rgba(0,240,255,0.15);
+            color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--accent);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0,240,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,240,255,0.4);
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(10,10,31,0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid var(--primary);
+            transition: all 0.4s;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255,0,68,0.3);
+            border-color: var(--accent);
+        }
+
+        .project-card img, .project-card .icon-placeholder {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
             border-radius: 10px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
+            margin-bottom: 15px;
         }
 
-        .skill-item:hover {
+        .project-card .icon-placeholder {
+            font-size: 6rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
             background: var(--primary);
-            transform: scale(1.05);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255,0,68,0.4);
         }
 
-        /* Responsive */
+        .btn:hover {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,240,255,0.6);
+        }
+
+        .social {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .social a {
+            font-size: 2.2rem;
+            color: var(--text);
+            margin: 0 18px;
+            transition: all 0.3s;
+        }
+
+        .social a:hover {
+            color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-                margin: 20px;
-                padding: 30px 20px;
-            }
-            .content-side { text-align: center; }
-            .quote { border: none; padding: 0; }
-            h1 { font-size: 3rem; }
+            header h1 { font-size: 3.5rem; }
+            .stats { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="profile-side">
-            <div class="avatar-wrapper">
-                <img src="Assets/profile.jpg" alt="1987" class="profile-img">
-            </div>
+    <header>
+        <div class="avatar-container">
+            <img src="Assets/profile.jpg" alt="1987" class="profile-img">
         </div>
+        <h1>1987</h1>
+        <p class="subtitle">18/03/200X • CIS • KKU Nong Khai</p>
+        <p class="quote">"Let's get married when we grow up."</p>
 
-        <div class="content-side">
-            <h1>1987</h1>
-            <p class="subtitle">Computer Information Science • KKU</p>
-            <p>ID: 663450172-5 | Kirati.su@kkumail.com</p>
-            <p class="quote">"Let's get married when we grow up."</p>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="number">5</div>
+                <div>Followers</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">21</div>
+                <div>Projects</div>
+            </div>
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="glass-card">
-            <h2><i class="fas fa-terminal"></i> Technical Stack</h2>
-            <div class="skills-flex">
-                <span class="skill-item">Python (ML)</span>
-                <span class="skill-item">Dart & Flutter</span>
-                <span class="skill-item">Network Security</span>
-                <span class="skill-item">Postman</span>
-                <span class="skill-item">Web Dev</span>
+    <div class="container">
+        <div class="section">
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                <p><strong>ID:</strong> 663450172-5</p>
+                <p><strong>Email:</strong> Kirati.su@kkumail.com</p>
             </div>
-        </section>
 
-        <section class="glass-card">
-            <h2><i class="fas fa-history"></i> Education & Experience</h2>
-            <p><strong>B.Sc. CIS</strong> - Khon Kaen University (Nong Khai)</p>
-            <ul style="margin-top: 15px; list-style: none;">
-                <li>🚀 Phishing Analysis Research (202X)</li>
-                <li>📱 Flutter App Development</li>
-                <li>🛡️ Cybersecurity Enthusiast</li>
+            <h3><i class="fas fa-code"></i> Technical Skills</h3>
+            <div class="skills-grid">
+                <span class="skill-tag">Python (Machine Learning)</span>
+                <span class="skill-tag">Dart & Flutter</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Data Preparation</span>
+                <span class="skill-tag">Postman (Newman)</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <p><strong>B.Sc. Computer Information Science (CIS)</strong></p>
+            <p>Khon Kaen University, Nong Khai Campus</p>
+            <p>Student ID: 663450172-5 • Expected Graduation: 202X</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Experience & Certificates</h2>
+            <ul style="list-style: none; line-height: 2;">
+                <li>• Phishing Analysis Research (YouTuber Attacks, 202X)</li>
+                <li>• Flutter Mobile App Development (Personal Projects)</li>
+                <li>• Web Development & JS Projects</li>
+                <li>• [Certificate] Google IT Support / Cybersecurity (ถ้ามีใส่เพิ่ม)</li>
+                <!-- เพิ่มตามจริงได้เลย -->
             </ul>
-        </section>
-    </main>
+        </div>
 
-    <footer style="text-align: center; padding: 40px; opacity: 0.5;">
-        © 2026 1987 | Designed for the Future
+        <div class="section">
+            <h2><i class="fas fa-laptop-code"></i> Featured Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="cal.png" alt="Web Calculator">
+                    <h4>Web Calculator</h4>
+                    <p>Simple interactive calculator with HTML, CSS, JS.</p>
+                    <a href="cal.html" class="btn">Open Project</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="icon-placeholder"><i class="fas fa-shield-halved"></i></div>
+                    <h4>Phishing Research</h4>
+                    <p>Deep analysis of phishing techniques targeting YouTubers.</p>
+                    <span style="color: var(--accent); font-weight: bold;">Network Security</span>
+                </div>
+
+                <!-- เพิ่ม Flutter project ได้ตรงนี้ -->
+                <div class="project-card">
+                    <div class="icon-placeholder"><i class="fab fa-flutter"></i></div>
+                    <h4>Flutter Mobile App</h4>
+                    <p>Personal mobile project (เพิ่ม screenshot หรือ link repo ถ้ามี).</p>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social">
+        <a href="https://steamcommunity.com/id/YOURID" target="_blank"><i class="fab fa-steam"></i></a>
+        <a href="https://github.com/sojjyuu" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/smth_yu" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/suwan.timcdma/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <footer>
+        © 2026 1987 | Built in the Neon Rain • CIS KKU
     </footer>
 
 </body>
