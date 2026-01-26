@@ -14,30 +14,43 @@
             --accent: #a8d0db;        /* sky blue pastel */
             --bg-cream: #f5f0e9;
             --text-dark: #4a4a4a;
-            --glass: rgba(255, 255, 255, 0.65);
+            --glass: rgba(255, 255, 255, 0.55);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Poppins', 'Kanit', sans-serif;
-            background: linear-gradient(rgba(245,240,233,0.4), rgba(245,240,233,0.4)), url('./assets/background.gif') no-repeat center center fixed;
+            background: linear-gradient(rgba(245,240,233,0.2), rgba(245,240,233,0.2)), 
+                        url('./assets/background.gif') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
             color: var(--text-dark);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            padding: 140px 20px 100px;
+            padding: 180px 20px 140px;
             text-align: center;
             position: relative;
+            z-index: 2;
         }
 
         .avatar-container {
             position: relative;
             width: 220px;
             height: 220px;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
         }
 
         .profile-img {
@@ -57,7 +70,7 @@
 
         header h1 {
             font-family: 'Noto Serif JP', serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             color: var(--primary);
             margin: 10px 0;
             letter-spacing: 4px;
@@ -65,16 +78,16 @@
         }
 
         header .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #5a5a5a;
             margin-bottom: 15px;
         }
 
         header .quote {
             font-family: 'Noto Serif JP', serif;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: #8a6d3b;
-            margin: 25px 0;
+            margin: 30px 0;
             font-style: italic;
             text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
@@ -82,15 +95,15 @@
         .stats {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            margin: 30px 0;
+            gap: 60px;
+            margin: 40px 0;
         }
 
         .stat-box {
             background: var(--glass);
             backdrop-filter: blur(8px);
-            padding: 18px 35px;
-            border-radius: 20px;
+            padding: 20px 40px;
+            border-radius: 24px;
             border: 1px solid rgba(107,158,120,0.3);
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             text-align: center;
@@ -98,30 +111,31 @@
         }
 
         .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(107,158,120,0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(107,158,120,0.3);
         }
 
         .stat-box .number {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: bold;
             color: var(--primary);
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto 80px;
-            padding: 0 25px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 30px;
+            flex: 1;
         }
 
         .section {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 45px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(168,208,219,0.4);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(168,208,219,0.35);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
         }
 
         .section h2 {
@@ -233,16 +247,20 @@
         }
 
         footer {
+            margin-top: auto;
             text-align: center;
-            padding: 50px 20px;
-            color: #777;
+            padding: 60px 20px 40px;
+            color: #666;
             font-size: 1rem;
             border-top: 1px solid rgba(107,158,120,0.2);
+            background: rgba(245,240,233,0.7);
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 3.2rem; }
-            .stats { flex-direction: column; gap: 25px; }
+            header { padding-top: 120px; padding-bottom: 80px; }
+            header h1 { font-size: 3.5rem; }
+            .stats { flex-direction: column; gap: 30px; }
+            .container { padding: 0 20px; }
         }
     </style>
 </head>
