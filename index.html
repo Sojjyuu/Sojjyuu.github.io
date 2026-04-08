@@ -1,158 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kirati Suwanpusit | Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>1987 | Sojjyuu Portfolio</title>
 
-  <!-- Font Awesome สำหรับไอคอน -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Noto+Serif+JP:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url("mybg.jpg"); 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #222;
-    }
+    <style>
+        :root {
+            --primary: #6b9e78;       /* soft green Ghibli forest */
+            --accent: #a8d0db;        /* sky blue pastel */
+            --bg-cream: #f5f0e9;
+            --text-dark: #4a4a4a;
+            --glass: rgba(255, 255, 255, 0.55);
+        }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-    }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #ccc;
-    }
+        body {
+            font-family: 'Poppins', 'Kanit', sans-serif;
+            background: linear-gradient(rgba(245,240,233,0.2), rgba(245,240,233,0.2)), 
+                        url('./assets/background.gif') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
+        header {
+            padding: 180px 20px 140px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 20px;
-      border: 5px solid #007acc;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+        .avatar-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px;
+        }
 
-    .info {
-      text-align: center;
-    }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+        }
 
-    .info h2 {
-      margin: 10px 0;
-      font-size: 1.8em;
-    }
+        .profile-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(107,158,120,0.4);
+        }
 
-    .info p {
-      margin: 6px 0;
-    }
+        header h1 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 5rem;
+            color: var(--primary);
+            margin: 10px 0;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 8px rgba(107,158,120,0.3);
+        }
 
-    .social {
-      margin-top: 18px;
-    }
+        header .subtitle {
+            font-size: 1.4rem;
+            color: #5a5a5a;
+            margin-bottom: 15px;
+        }
 
-    .social a {
-      margin: 0 10px;
-      font-size: 1.8em;
-      color: #007acc;
-      transition: color 0.3s;
-    }
+        header .quote {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.7rem;
+            color: #8a6d3b;
+            margin: 30px 0;
+            font-style: italic;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
 
-    .social a:hover {
-      color: #005b99;
-    }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px 0;
-      font-size: 0.9em;
-      color: #f0f0f0;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  </style>
+        .stat-box {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            padding: 20px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(107,158,120,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(107,158,120,0.3);
+        }
+
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 30px;
+            flex: 1;
+        }
+
+        .section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(168,208,219,0.35);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 12px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(168,208,219,0.25);
+            color: #4a6c5e;
+            padding: 10px 22px;
+            border-radius: 30px;
+            border: 1px solid var(--accent);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(168,208,219,0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(168,208,219,0.3);
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .project-card {
+            background: #fffef9;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(107,158,120,0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(107,158,120,0.25);
+            border-color: var(--primary);
+        }
+
+        .project-card img, .project-card .icon-placeholder {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+
+        .project-card .icon-placeholder {
+            font-size: 7rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 180px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(107,158,120,0.3);
+        }
+
+        .btn:hover {
+            background: #5a8c68;
+            transform: scale(1.06);
+            box-shadow: 0 8px 20px rgba(107,158,120,0.4);
+        }
+
+        .social {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .social a {
+            font-size: 2.4rem;
+            color: #6b6b6b;
+            margin: 0 20px;
+            transition: all 0.3s;
+        }
+
+        .social a:hover {
+            color: var(--primary);
+            transform: scale(1.15);
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: #666;
+            font-size: 1rem;
+            border-top: 1px solid rgba(107,158,120,0.2);
+            background: rgba(245,240,233,0.7);
+        }
+
+        @media (max-width: 768px) {
+            header { padding-top: 120px; padding-bottom: 80px; }
+            header h1 { font-size: 3.5rem; }
+            .stats { flex-direction: column; gap: 30px; }
+            .container { padding: 0 20px; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Kirati Suwanpusit</h1>
-    <p>Computer Information Science Student at KKU</p>
-  </header>
+    <header>
+        <div class="avatar-container">
+            <img src="assets/profile.jpg" alt="1987" class="profile-img">
+        </div>
+        <h1>1987</h1>
+        <p class="subtitle">18/03/200X • CIS • KKU Nong Khai</p>
+        <p class="quote">"Let's get married when we grow up."</p>
 
-  <div class="container">
-    <img src="Ai.jpg" alt="Kirati Suwanpusit" class="profile-img">
-    <div class="info">
-      <h2>About Me</h2>
-      <p><strong>Student ID:</strong> 663450172-5</p>
-      <p><strong>Email:</strong> <a href="mailto:Kirati.su@kkumail.com">Kirati.su@kkumail.com</a></p>
-      <p><strong>Major:</strong> CIS (Computer Information Science)</p>
-      <div class="social">
-        <a href="https://www.facebook.com/suwan.timcdma/" target="_blank" title="Facebook">
-          <i class="fab fa-facebook-square"></i>
-        </a>
-        <a href="https://www.instagram.com/smth_yu" target="_blank" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-     <img src="cal.png" alt="Calculator Preview" style="
-    width: 180px; /* Increased image width */
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin-bottom: 15px;
-    display: block;
-    margin-left: 0;
-    margin-right: auto;
-    margin-top: 30px; /* Moves the image down */
-">
-  
-<a href="https://sojjyuu.github.io/cal.html" target="_blank" style="
-    background-color: #007acc;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    display: block;
-    width: 180px; /* Button width matches the new image width */
-    text-align: center;
-    margin-left: 0;
-    margin-right: auto;
-    margin-top: 15px; /* Moves the button down, creating space from the image */
-">Open Calculator</a>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="number">5</div>
+                <div>Followers</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">21</div>
+                <div>Projects</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                <p><strong>ID:</strong> 663450172-5</p>
+                <p><strong>Email:</strong> Kirati.su@kkumail.com</p>
+            </div>
+
+            <h3><i class="fas fa-code"></i> Technical Skills</h3>
+            <div class="skills-grid">
+                <span class="skill-tag">Python (Machine Learning)</span>
+                <span class="skill-tag">Dart & Flutter</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Data Preparation</span>
+                <span class="skill-tag">Postman (Newman)</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <p><strong>B.Sc. Computer Information Science (CIS)</strong></p>
+            <p>Khon Kaen University, Nong Khai Campus</p>
+            <p>Student ID: 663450172-5 • Expected Graduation: 202X</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Experience & Certificates</h2>
+            <ul style="list-style: none; line-height: 2; padding-left: 20px;">
+                <li>• Phishing Analysis Research (YouTuber Attacks, 202X)</li>
+                <li>• Flutter Mobile App Development (Personal Projects)</li>
+                <li>• Web Development & JS Projects</li>
+                <li>• [Certificate] Google IT Support / Cybersecurity (ถ้ามีใส่เพิ่ม)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-laptop-code"></i> Featured Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="cal.png" alt="Web Calculator">
+                    <h4>Web Calculator</h4>
+                    <p>เครื่องคิดเลขเว็บง่าย ๆ สร้างด้วย HTML, CSS, JS</p>
+                    <a href="cal.html" class="btn">เปิดโปรเจกต์</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="icon-placeholder"><i class="fas fa-shield-halved"></i></div>
+                    <h4>Phishing Research</h4>
+                    <p>วิเคราะห์การโจมตี phishing ที่มุ่งเป้า YouTuber</p>
+                    <span style="color: var(--primary); font-weight: bold;">Network Security</span>
+                </div>
+
+                <div class="project-card">
+                    <div class="icon-placeholder"><i class="fab fa-flutter"></i></div>
+                    <h4>Flutter Mobile App</h4>
+                    <p>โปรเจกต์แอพมือถือส่วนตัว (เพิ่มรูปหรือลิงก์ repo ถ้ามี)</p>
+                    <a href="#" class="btn">ดูรายละเอียด</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 Kirati Suwanpusit. All rights reserved.
-  </footer>
+    <div class="social">
+        <a href="https://steamcommunity.com/profiles/76561199137731174/" target="_blank"><i class="fab fa-steam"></i></a>
+        <a href="https://github.com/sojjyuu" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/smth_yu" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/suwan.timcdma/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <footer>
+        © 2026 1987 | Built with Gentle Breeze • CIS KKU
+    </footer>
 
 </body>
 </html>
