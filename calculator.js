@@ -12,6 +12,16 @@ const display = document.getElementById('display');
  */
 function updateDisplay(value) {
   display.value = value;
+  // Announce to screen readers
+  announceToScreenReader(value || '0');
+}
+
+/**
+ * Announces messages to screen readers
+ * @param {string} message - The message to announce
+ */
+function announceToScreenReader(message) {
+  display.setAttribute('aria-label', `Calculator display: ${message}`);
 }
 
 /**
@@ -62,7 +72,10 @@ function inputOperator(op) {
   previousInput = currentInput || previousInput;
   currentInput = '';
   shouldResetDisplay = true;
-  updateDisplay(previousInput + ' ' + (op === '*' ? '×' : op) + ' ');
+  
+  const opDisplay = op === '*' ? '×' : op;
+  updateDisplay(previousInput + ' ' + opDisplay + ' ');
+  announceToScreenReader(`${previousInput} ${opDisplay}`);
 }
 
 /**
@@ -87,7 +100,9 @@ function calculate() {
       break;
     case '/':
       if (current === 0) {
-        updateDisplay('Error: Cannot divide by zero');
+        const errorMsg = 'Error: Cannot divide by zero';
+        updateDisplay(errorMsg);
+        announceToScreenReader(errorMsg);
         resetCalculator();
         return;
       }
@@ -100,8 +115,10 @@ function calculate() {
   // Format result to avoid floating point precision issues
   result = Math.round(result * 1000000000) / 1000000000;
   
-  updateDisplay(result.toString());
-  currentInput = result.toString();
+  const resultStr = result.toString();
+  updateDisplay(resultStr);
+  announceToScreenReader(`Result: ${resultStr}`);
+  currentInput = resultStr;
   previousInput = '';
   operator = '';
   shouldResetDisplay = true;
@@ -113,6 +130,7 @@ function calculate() {
 function clearCalculator() {
   resetCalculator();
   updateDisplay('');
+  announceToScreenReader('Calculator cleared');
 }
 
 /**
@@ -131,11 +149,11 @@ function resetCalculator() {
 function deleteLast() {
   if (currentInput.length > 0) {
     currentInput = currentInput.slice(0, -1);
-    updateDisplay(currentInput);
+    updateDisplay(currentInput || '');
   }
 }
 
-// Keyboard support
+// Keyboard support with accessibility
 document.addEventListener('keydown', function(event) {
   const key = event.key;
   
@@ -153,25 +171,28 @@ document.addEventListener('keydown', function(event) {
   } else if (key === 'Enter' || key === '=') {
     event.preventDefault();
     calculate();
-  } else if (key === 'Escape' || key === 'c' || key === 'C') {
+  } else if (key === 'Escape' || key.toLowerCase() === 'c') {
     clearCalculator();
   } else if (key === 'Backspace') {
     deleteLast();
   }
 });
 
-// Add interactive animations when DOM is loaded
+// Add interactive animations when DOM is loaded with performance optimization
 document.addEventListener('DOMContentLoaded', function() {
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(button => {
     button.addEventListener('click', function() {
+      // Use will-change for better performance
+      this.style.willChange = 'transform';
       this.style.transform = 'scale(0.95)';
       setTimeout(() => {
         this.style.transform = '';
+        this.style.willChange = 'auto';
       }, 100);
     });
   });
-});
+}, { once: true });
 
 // Initialize display
 updateDisplay('');

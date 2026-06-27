@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Contact — Sojjyuu">
+<meta name="description" content="Contact Sojjyuu — Developer & Creator based in Khon Kaen, Thailand. Get in touch for collaborations and opportunities.">
+<meta name="keywords" content="contact, developer, designer, Sojjyuu, Khon Kaen, Thailand">
+<meta name="author" content="Sojjyuu">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Contact — Sojjyuu">
+<meta property="og:description" content="Reach out to Sojjyuu for collaborations, projects, and opportunities. Based in Khon Kaen, Thailand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sojjyuu.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Sojjyuu">
+<meta name="twitter:description" content="Get in touch with Sojjyuu for collaborations and projects.">
 <title>Contact — Sojjyuu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,10 +58,8 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .back-btn{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;border:1px solid var(--border);padding:7px 20px;color:var(--white);text-decoration:none;cursor:none;transition:background .2s,color .2s;}
 .back-btn:hover{background:var(--white);color:var(--dark);}
 
-/* PAGE — flex column fills viewport */
 .page{padding-top:5.4rem;min-height:100vh;display:flex;flex-direction:column;}
 
-/* HERO AREA — two columns, fills remaining viewport height */
 .hero-area{
   flex:1;
   display:grid;
@@ -59,7 +67,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   min-height:0;
 }
 
-/* LEFT */
 .left-panel{
   padding:4rem 2.5rem;
   display:flex;flex-direction:column;justify-content:center;
@@ -87,7 +94,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .form-submit span{position:relative;z-index:1;}
 .form-note{font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.14);letter-spacing:.08em;margin-top:.5rem;}
 
-/* RIGHT — image fills entire column height */
 .right-panel{
   position:relative;
   overflow:hidden;
@@ -98,7 +104,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,.3) 0%,transparent 35%),linear-gradient(to top,rgba(8,8,8,.55) 0%,transparent 35%);pointer-events:none;}
 .img-tag{position:absolute;bottom:1.6rem;left:1.6rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;color:rgba(255,255,255,.32);}
 
-/* FOOTER */
 .page-footer{
   border-top:1px solid var(--border);
   padding:2.5rem 2.5rem;
@@ -130,16 +135,16 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 </head>
 <body>
 
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
 
-<div class="topbar">
+<div class="topbar" role="banner">
   <div class="clk-g">
     <span class="clk-lb">LOCAL /</span>
-    <span id="clock">--:--:--</span>
-    <div class="avail-dot"></div>
+    <span id="clock" aria-label="Current time in 24-hour format">--:--:--</span>
+    <div class="avail-dot" aria-hidden="true"></div>
   </div>
-  <a class="back-btn" href="index.html">← BACK</a>
+  <a class="back-btn" href="index.html" aria-label="Go back to home page">← BACK</a>
 </div>
 
 <div class="page">
@@ -147,36 +152,40 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 
     <div class="left-panel">
       <div class="contact-tag">GET IN TOUCH</div>
-      <div class="contact-hl">RING A</div>
+      <h1 class="contact-hl">RING A</h1>
       <div class="contact-hl2">BELL!</div>
       <p class="contact-sub">REACH OUT AND LET'S CREATE SOMETHING AMAZING TOGETHER. LET'S ACHIEVE GREATNESS.</p>
       <div class="form-wrap">
-        <div class="form-label">FILL THIS FORM OUT</div>
+        <label class="form-label" for="f-name">FILL THIS FORM OUT</label>
         <div class="form-row">
-          <input class="form-input" type="text" id="f-name" placeholder="NAME" autocomplete="off">
-          <input class="form-input" type="email" id="f-email" placeholder="E-MAIL" autocomplete="off">
+          <input class="form-input" type="text" id="f-name" placeholder="NAME" autocomplete="off" aria-label="Your name" required>
+          <input class="form-input" type="email" id="f-email" placeholder="E-MAIL" autocomplete="off" aria-label="Your email address" required>
         </div>
-        <textarea class="form-textarea" id="f-msg" placeholder="MESSAGE"></textarea>
-        <button class="form-submit" id="sendBtn"><span>SEND EMAIL</span></button>
+        <textarea class="form-textarea" id="f-msg" placeholder="MESSAGE" aria-label="Your message" required></textarea>
+        <button class="form-submit" id="sendBtn" aria-label="Send email"><span>SEND EMAIL</span></button>
         <div class="form-note">// opens your email client directly</div>
       </div>
     </div>
 
     <div class="right-panel">
-      <img class="contact-img" src="assets/Makima.jpeg" alt="Sojjyuu"
+      <img class="contact-img" 
+           src="assets/Makima.jpeg" 
+           alt="Sojjyuu - Developer and Creator based in Khon Kaen, Thailand"
+           loading="lazy"
+           decoding="async"
            onerror="this.parentElement.style.background='rgba(10,184,216,.04)';this.style.display='none';">
-      <div class="img-overlay"></div>
+      <div class="img-overlay" aria-hidden="true"></div>
       <div class="img-tag">SOJJYUU · KHK, TH</div>
     </div>
 
   </div>
 
-  <footer class="page-footer">
+  <footer class="page-footer" role="contentinfo">
     <div>
       <div class="fi-label">FOLLOW ME</div>
-      <a class="fi-item" href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener">INSTAGRAM</a>
-      <a class="fi-item" href="https://github.com/Sojjyuu" target="_blank" rel="noopener">GITHUB</a>
-      <a class="fi-item" href="https://twitter.com/sojjyuu" target="_blank" rel="noopener">TWITTER X</a>
+      <a class="fi-item" href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener" aria-label="Follow Sojjyuu on Instagram">INSTAGRAM</a>
+      <a class="fi-item" href="https://github.com/Sojjyuu" target="_blank" rel="noopener" aria-label="View Sojjyuu's GitHub profile">GITHUB</a>
+      <a class="fi-item" href="https://twitter.com/sojjyuu" target="_blank" rel="noopener" aria-label="Follow Sojjyuu on Twitter/X">TWITTER X</a>
     </div>
     <div>
       <div class="fi-label">CURRENT LOCATION</div>
@@ -185,13 +194,13 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
     </div>
     <div>
       <div class="fi-label">EMAIL ME</div>
-      <a class="fi-item" href="mailto:sojjyuu@gmail.com" style="color:var(--sakura);">SOJJYUU@GMAIL.COM</a>
+      <a class="fi-item" href="mailto:sojjyuu@gmail.com" style="color:var(--sakura);" aria-label="Send email to sojjyuu@gmail.com">SOJJYUU@GMAIL.COM</a>
     </div>
     <div class="fi-name">SOJJ<span>YUU</span></div>
   </footer>
 </div>
 
-<div id="toast">OPENING EMAIL ✓</div>
+<div id="toast" role="alert" aria-live="polite">OPENING EMAIL ✓</div>
 
 <script>
 const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');

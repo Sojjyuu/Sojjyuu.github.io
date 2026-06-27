@@ -3,10 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Sojjyuu — Developer & Creator">
-<title>Sojjyuu</title>
+<meta name="description" content="Sojjyuu — Developer & Creator | Building beautiful, functional web apps and projects inspired by anime. Based in Khon Kaen, Thailand.">
+<meta name="keywords" content="developer, designer, web developer, UI/UX, freelance, Khon Kaen, Thailand, HTML, CSS, JavaScript, Python">
+<meta name="author" content="Sojjyuu">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0ab8d8">
+<meta property="og:title" content="Sojjyuu — Developer & Creator">
+<meta property="og:description" content="Explore my portfolio. I build visually sharp and functional web apps. Passionate about UI/UX and side projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sojjyuu.com">
+<meta property="og:image" content="https://sojjyuu.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sojjyuu — Developer & Creator">
+<meta name="twitter:description" content="Building beautiful and functional web projects.">
+<title>Sojjyuu — Developer & Creator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://sojjyuu.com">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -60,6 +73,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   width:36px;height:36px;display:flex;align-items:center;justify-content:center;
   font-size:1.05rem;cursor:none;color:rgba(255,255,255,.45);
   transition:border-color .2s,color .2s;
+  aria-label:"Search"
 }
 .msearch-btn:hover{border-color:var(--ocean);color:var(--ocean);}
 .close-btn{
@@ -152,248 +166,284 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 @keyframes spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
 .hero-strip{position:absolute;bottom:0;left:0;right:0;height:110px;pointer-events:none;background:linear-gradient(135deg,var(--ocean),var(--sakura) 55%,#12122a);opacity:.16;clip-path:polygon(0 45%,100% 0,100% 100%,0 100%);}
 
-.topbar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.topbar{
+  position:relative;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  animation:fadeInTop .6s ease both;
+}
 .clk-g{display:flex;align-items:center;gap:.5rem;}
 .clk-lb{font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.28);letter-spacing:.12em;}
 #clock{font-family:var(--mono);font-size:.8rem;color:var(--ocean);letter-spacing:.1em;}
-.avail{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:rgba(255,255,255,.38);}
 .avail-dot{width:7px;height:7px;border-radius:50%;background:var(--sakura);animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.15;}}
-.nav-r{display:flex;align-items:center;gap:.7rem;}
-.icon-btn{background:none;border:1px solid var(--border);width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:none;color:rgba(255,255,255,.45);transition:border-color .2s,color .2s;}
-.icon-btn:hover{border-color:var(--ocean);color:var(--ocean);}
-.menu-btn{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;border:1px solid rgba(255,255,255,.28);padding:7px 20px;background:var(--white);color:var(--dark);cursor:none;transition:background .2s;}
-.menu-btn:hover{background:var(--ocean);border-color:var(--ocean);}
+.hm-btn{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+  border:1px solid var(--border);padding:7px 20px;color:var(--white);
+  background:none;cursor:none;transition:background .2s,border-color .2s;
+}
+.hm-btn:hover{background:var(--white);color:var(--dark);}
 
-.hero-center{position:relative;z-index:10;text-align:center;}
-.big-name{font-family:var(--display);font-size:clamp(5.5rem,17vw,15.5rem);line-height:.88;letter-spacing:-.01em;animation:revealUp .9s cubic-bezier(.16,1,.3,1) both;}
-.r1{display:block;color:var(--white);}
-.r2{display:block;-webkit-text-stroke:1.5px rgba(255,255,255,.25);color:transparent;}
-.r3{display:block;font-size:.3em;letter-spacing:.28em;color:var(--sakura);-webkit-text-stroke:0;margin-top:.35em;}
-@keyframes revealUp{from{opacity:0;transform:translateY(45px);}to{opacity:1;transform:translateY(0);}}
+.hero-main{
+  position:relative;z-index:50;
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;
+  color:var(--ocean);text-transform:uppercase;margin-bottom:.6rem;
+  animation:fadeInUp .7s cubic-bezier(.16,1,.3,1) .1s both;
+}
+.hero-headline{
+  font-family:var(--display);font-size:clamp(3.2rem,8vw,6.2rem);
+  line-height:.95;color:var(--white);margin-bottom:1.8rem;letter-spacing:.02em;
+  animation:fadeInUp .7s cubic-bezier(.16,1,.3,1) .2s both;
+}
+.hero-sub{
+  font-family:var(--mono);font-size:.72rem;color:var(--gray);
+  line-height:1.8;letter-spacing:.04em;max-width:520px;margin-bottom:3rem;
+  animation:fadeInUp .7s cubic-bezier(.16,1,.3,1) .3s both;
+}
+.cta-row{display:flex;gap:1.2rem;animation:fadeInUp .7s cubic-bezier(.16,1,.3,1) .4s both;}
+.btn-primary{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;
+  border:1px solid var(--ocean);padding:12px 30px;color:var(--ocean);
+  background:none;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-primary:hover{background:var(--ocean);color:var(--dark);}
+.btn-secondary{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;
+  border:1px solid rgba(255,255,255,.3);padding:12px 30px;color:var(--white);
+  background:none;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-secondary:hover{border-color:var(--sakura);color:var(--sakura);}
 
-.bottombar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:flex-end;}
-.loc{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.3);}
-.role-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:rgba(255,255,255,.38);}
-.role-tag span{color:var(--ocean);}
-.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;animation:sBounce 2.2s ease-in-out infinite;}
-.scroll-ind::after{content:'↓';}
-@keyframes sBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+.hero-bottom{
+  position:relative;z-index:100;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  animation:fadeInUp .7s cubic-bezier(.16,1,.3,1) .5s both;
+}
+.scroll-hint{
+  font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.25);
+  letter-spacing:.15em;display:flex;align-items:center;gap:.6rem;
+}
+.scroll-hint::after{content:'';display:inline-block;width:1px;height:24px;background:rgba(255,255,255,.25);animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+.social-pills{display:flex;gap:.8rem;}
+.sp{
+  width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:none;
+  text-decoration:none;transition:all .2s;color:var(--white);
+}
+.sp:hover{border-color:var(--ocean);background:var(--ocean);color:var(--dark);}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInTop{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
 
 /* ════════════════════
    SECTIONS
 ════════════════════ */
-.section{padding:6.5rem 2.5rem;border-top:1px solid var(--border);opacity:0;transform:translateY(26px);transition:opacity .75s,transform .75s;}
+.section{
+  padding:6rem 2.5rem;
+  border-bottom:1px solid var(--border);
+  opacity:0;transform:translateY(40px);
+  transition:opacity .6s ease,transform .6s ease;
+}
 .section.vis{opacity:1;transform:none;}
-.sh{display:flex;align-items:center;gap:1.2rem;margin-bottom:3.5rem;}
-.sh-num{font-family:var(--mono);font-size:.6rem;color:var(--sakura);border:1px solid var(--sakura);padding:3px 9px;flex-shrink:0;}
-.sh-title{font-family:var(--display);font-size:clamp(2.2rem,4.5vw,4rem);letter-spacing:.1em;}
-.sh-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(10,184,216,.35),transparent);}
 
-/* ABOUT */
-.about-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
-.about-body{font-size:1rem;line-height:1.95;color:var(--gray);}
-.about-body p+p{margin-top:1rem;}
-.about-body strong{color:var(--ocean);}
-.about-body em{color:var(--sakura);font-style:normal;}
-.data-panel{border:1px solid var(--border);background:var(--surface);padding:1.8rem;}
-.dp-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;gap:1rem;}
-.dp-row:last-child{border-bottom:none;}
-.dp-k{font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.08em;flex-shrink:0;}
-.dp-v{color:var(--white);font-weight:600;text-align:right;}
-.dp-v.hi{color:var(--ocean);}
-.dp-v.pk{color:var(--sakura);}
+.sh{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;
+  margin-bottom:3.5rem;
+}
+.sh-num{
+  font-family:var(--display);font-size:clamp(2.8rem,6vw,4.2rem);
+  color:rgba(255,255,255,.1);line-height:1;letter-spacing:.1em;
+}
+.sh-title{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--white);
+}
+.sh-line{height:1px;background:var(--border);}
 
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
-.pc{border:1px solid var(--border);background:var(--surface);padding:2rem;position:relative;overflow:hidden;cursor:none;transition:border-color .3s,background .3s,transform .3s;}
-.pc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--ocean),var(--sakura));transform:scaleY(0);transform-origin:bottom;transition:transform .35s;}
-.pc:hover::before{transform:scaleY(1);}
-.pc:hover{border-color:rgba(10,184,216,.28);background:rgba(10,184,216,.04);transform:translateY(-4px);}
-.pc:first-child{grid-column:span 2;}
-.pc-n{font-family:var(--mono);font-size:.56rem;color:var(--sakura);margin-bottom:.45rem;letter-spacing:.08em;}
-.pc-t{font-family:var(--display);font-size:1.75rem;letter-spacing:.05em;margin-bottom:.4rem;}
-.pc-d{font-size:.88rem;color:var(--gray);line-height:1.7;}
-.pc-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:1.2rem;}
-.pc-tags span{font-family:var(--mono);font-size:.58rem;padding:2px 9px;border:1px solid rgba(10,184,216,.25);color:var(--ocean);}
-.pc-arrow{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--mono);font-size:.75rem;color:rgba(255,255,255,.18);}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+}
+.about-grid > div{
+  display:flex;flex-direction:column;gap:1.2rem;
+}
+.about-grid > div:nth-child(3){grid-column:1/-1;}
 
-/* GITHUB */
-.gh-wrap{border:1px solid rgba(10,184,216,.22);background:linear-gradient(135deg,rgba(10,184,216,.07),rgba(232,130,154,.04));padding:3rem;display:flex;align-items:center;gap:3rem;}
-.gh-ico{width:72px;height:72px;flex-shrink:0;border:1px solid rgba(10,184,216,.3);display:flex;align-items:center;justify-content:center;font-size:2rem;}
-.gh-url{font-family:var(--mono);font-size:1rem;color:var(--ocean);text-decoration:none;display:block;margin-bottom:.45rem;transition:color .2s;}
+.proj-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.8rem;
+}
+.pc{
+  padding:2rem;border:1px solid var(--border);border-radius:8px;
+  cursor:pointer;transition:all .3s;position:relative;overflow:hidden;
+}
+.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,184,216,.05),rgba(232,130,154,.03));opacity:0;transition:opacity .3s;pointer-events:none;}
+.pc:hover{border-color:var(--ocean);background:var(--surface);}
+.pc:hover::before{opacity:1;}
+.pc-n{font-family:var(--mono);font-size:.6rem;color:var(--sakura);letter-spacing:.1em;margin-bottom:.8rem;}
+.pc-t{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.1;}
+.pc-d{font-family:var(--mono);font-size:.65rem;color:var(--gray);line-height:1.6;margin-bottom:1.5rem;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem;}
+.pc-tags span{
+  font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.15);padding:4px 10px;border-radius:3px;
+}
+.pc-arrow{font-size:1.4rem;color:var(--ocean);opacity:0;transform:translateX(-8px);transition:all .3s;position:absolute;right:2rem;bottom:2rem;}
+.pc:hover .pc-arrow{opacity:1;transform:none;}
+
+.gh-wrap{
+  padding:2rem;border:1px solid var(--border);border-radius:8px;
+  display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;
+}
+.gh-ico{font-size:3rem;}
+.gh-url{
+  font-family:var(--mono);font-size:.8rem;color:var(--ocean);
+  text-decoration:none;letter-spacing:.05em;transition:color .2s;
+}
 .gh-url:hover{color:var(--sakura);}
-.gh-desc{font-size:.9rem;color:var(--gray);line-height:1.7;}
-.gh-chip{display:inline-block;margin-top:.85rem;font-family:var(--mono);font-size:.6rem;background:rgba(232,130,154,.12);color:var(--sakura);padding:4px 12px;border:1px solid rgba(232,130,154,.25);letter-spacing:.08em;}
+.gh-desc{
+  font-family:var(--mono);font-size:.65rem;color:var(--gray);
+  line-height:1.6;margin:1rem 0;
+}
+.gh-chip{
+  font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.3);
+  letter-spacing:.08em;margin-top:1.2rem;
+}
 
-/* SOCIALS */
-.soc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.sc{border:1px solid var(--border);background:var(--surface);padding:1.8rem;display:flex;align-items:center;gap:1rem;cursor:none;transition:all .25s;text-decoration:none;color:var(--white);}
-.sc:hover{border-color:rgba(232,130,154,.3);background:rgba(232,130,154,.05);transform:translateY(-4px);}
-.sc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
-.sc-p{font-family:var(--display);font-size:1.1rem;letter-spacing:.06em;}
-.sc-h{font-family:var(--mono);font-size:.6rem;color:var(--ocean);margin-top:2px;}
+.soc-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;
+}
+.sc{
+  padding:1.8rem;border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:center;gap:1.2rem;text-decoration:none;
+  transition:all .3s;cursor:none;
+}
+.sc:hover{border-color:var(--white);background:var(--surface);}
+.sc-ico{
+  width:56px;height:56px;border-radius:8px;display:flex;
+  align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;
+}
+.sc-p{font-family:var(--mono);font-size:.58rem;color:rgba(255,255,255,.5);letter-spacing:.12em;}
+.sc-h{font-family:var(--display);font-size:1.4rem;color:var(--white);margin-top:.4rem;letter-spacing:.05em;}
 
-/* FOOTER */
-footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden;}
-footer::before{content:"";position:absolute;inset:0;background-image:url("assets/garden.gif");background-size:cover;background-position:center;filter:saturate(.6) brightness(.35);z-index:0;}
-footer>*{position:relative;z-index:1;}
-.f-name{font-family:var(--display);font-size:2rem;letter-spacing:.1em;}
+footer{
+  padding:3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);
+}
+.f-name{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1;color:var(--white);letter-spacing:.05em;}
 .f-name span{color:var(--sakura);}
-.f-copy{font-family:var(--mono);font-size:.58rem;color:rgba(255,255,255,.2);}
+.f-copy{font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.08em;}
 
-@media(max-width:768px){
-  .hero,.section{padding-left:1.4rem;padding-right:1.4rem;}
-  .about-layout{grid-template-columns:1fr;gap:2.5rem;}
-  .proj-grid{grid-template-columns:1fr;}
-  .pc:first-child{grid-column:span 1;}
-  .soc-grid{grid-template-columns:1fr;}
-  .gh-wrap{flex-direction:column;gap:1.5rem;padding:2rem;}
-  .avail{display:none;}
-  .menu-top,.menu-foot,.menu-nav,.menu-search-wrap.vis{padding-left:1.4rem;padding-right:1.4rem;}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}
+  .about-grid > div:nth-child(3){grid-column:auto;}
+  .gh-wrap{grid-template-columns:1fr;}
+  .section{padding:4rem 1.5rem;}
+  .topbar{padding:1.2rem 1.5rem;}
+  footer{flex-direction:column;gap:2rem;text-align:center;}
 }
 </style>
 </head>
 <body>
 
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
 
-<!-- ══════ MENU OVERLAY ══════ -->
-<div id="menu-overlay">
-
+<div id="menu-overlay" role="navigation" aria-label="Main navigation menu">
   <div class="menu-top">
-    <div class="menu-ticker">SOJJYUU.GITHUB.IO &nbsp;·&nbsp; KHK, KHON KAEN TH &nbsp;·&nbsp; OPEN TO OPPORTUNITIES &nbsp;·&nbsp;</div>
+    <div class="menu-ticker" id="m-ticker">SOJJYUU • DEVELOPER & CREATOR • KHON KAEN, TH</div>
     <div class="menu-actions">
-      <button class="msearch-btn" id="m-srch-btn" title="Search">⌕</button>
-      <button class="close-btn" onclick="closeMenu()">CLOSE</button>
+      <button class="msearch-btn" id="m-srch-btn" aria-label="Toggle search">🔍</button>
+      <button class="close-btn" onclick="closeMenu()" aria-label="Close menu">CLOSE</button>
     </div>
   </div>
-
   <div class="menu-search-wrap" id="m-srch-wrap">
     <div class="search-row">
-      <span>SEARCH /</span>
-      <input type="text" id="s-input" placeholder="type to search..." autocomplete="off">
+      <span>FIND /</span>
+      <input type="text" id="s-input" placeholder="search..." aria-label="Search portfolio items">
     </div>
   </div>
-
   <nav class="menu-nav">
-    <a href="#" onclick="closeMenu()">
-      <span class="mn-n">/01</span><span class="mn-t">MAIN HOME</span>
-    </a>
-    <a href="#about" onclick="closeMenu()">
-      <span class="mn-n">02</span><span class="mn-t">ABOUT ME</span>
-    </a>
-    <a href="#projects" onclick="closeMenu()">
-      <span class="mn-n">03</span><span class="mn-t">SIDE PROJECTS</span>
-    </a>
-    <a href="#socials" onclick="closeMenu()">
-      <span class="mn-n">04</span><span class="mn-t">SOCIALS</span>
-    </a>
+    <a href="#about" onclick="closeMenu()"><span class="mn-n">01</span><span class="mn-t">ABOUT</span></a>
+    <a href="#projects" onclick="closeMenu()"><span class="mn-n">02</span><span class="mn-t">PROJECTS</span></a>
+    <a href="#github" onclick="closeMenu()"><span class="mn-n">03</span><span class="mn-n">GITHUB</span></a>
+    <a href="contact.html"><span class="mn-n">04</span><span class="mn-t">CONTACT</span></a>
   </nav>
-
   <div class="menu-foot">
-    <a href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener">INSTAGRAM</a>
-    <a href="https://github.com/Sojjyuu" target="_blank" rel="noopener">GITHUB</a>
-    <a href="https://twitter.com/sojjyuu" target="_blank" rel="noopener">TWITTER</a>
+    <a href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">INSTAGRAM</a>
+    <a href="https://twitter.com/sojjyuu" target="_blank" rel="noopener noreferrer" aria-label="Twitter">TWITTER</a>
+    <a href="https://github.com/Sojjyuu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GITHUB</a>
   </div>
-
 </div>
 
-<!-- ══════ HERO ══════ -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-slash"></div>
-  <div class="hero-slash2"></div>
-  <div class="ring ring1"></div>
-  <div class="ring ring2"></div>
-  <div class="ring ring3"></div>
-  <div class="hero-strip"></div>
+<div class="hero" role="main">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-slash" aria-hidden="true"></div>
+  <div class="hero-slash2" aria-hidden="true"></div>
+  <div class="ring ring1" aria-hidden="true"></div>
+  <div class="ring ring2" aria-hidden="true"></div>
+  <div class="ring ring3" aria-hidden="true"></div>
+  <div class="hero-strip" aria-hidden="true"></div>
 
   <div class="topbar">
     <div class="clk-g">
       <span class="clk-lb">LOCAL /</span>
-      <span id="clock">--:--:--</span>
-      <a href="contact.html" title="Contact" style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-left:.4rem;border:1px solid var(--border);color:var(--ocean);transition:border-color .2s,color .2s,background .2s;cursor:none;" onmouseenter="this.style.borderColor='var(--sakura)';this.style.color='var(--sakura)';" onmouseleave="this.style.borderColor='var(--border)';this.style.color='var(--ocean)';">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-      </a>
+      <span id="clock" aria-label="Current time">--:--:--</span>
+      <div class="avail-dot" aria-hidden="true"></div>
     </div>
-    <div class="avail">
-      <div class="avail-dot"></div>
-      OPEN TO OPPORTUNITIES
-    </div>
-    <div class="nav-r">
-      <button class="icon-btn" title="Search" onclick="openMenu(true)">⌕</button>
-      <button class="menu-btn" onclick="openMenu(false)">MENU</button>
+    <button class="hm-btn" onclick="openMenu()" aria-label="Open main navigation menu">MENU</button>
+  </div>
+
+  <div class="hero-main">
+    <div class="hero-eyebrow">WELCOME TO</div>
+    <h1 class="hero-headline">SOJJYUU</h1>
+    <p class="hero-sub">Developer & Designer crafting visually sharp, fully functional experiences. Building with passion, precision, and inspiration from anime aesthetics.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn-primary" aria-label="View my projects">VIEW WORK</a>
+      <a href="contact.html" class="btn-secondary" aria-label="Get in touch">GET IN TOUCH</a>
     </div>
   </div>
 
-  <div class="hero-center">
-    <div class="big-name">
-      <span class="r1">SOJJ</span>
-      <span class="r2">YUU</span>
-      <span class="r3">DEVELOPER &amp; CREATOR</span>
+  <div class="hero-bottom">
+    <div class="scroll-hint">SCROLL TO EXPLORE</div>
+    <div class="social-pills">
+      <a href="https://www.instagram.com/smth_yu/" class="sp" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
+      <a href="https://twitter.com/sojjyuu" class="sp" target="_blank" rel="noopener noreferrer" title="Twitter">𝕏</a>
+      <a href="https://github.com/Sojjyuu" class="sp" target="_blank" rel="noopener noreferrer" title="GitHub">🐙</a>
     </div>
   </div>
-
-  <div class="bottombar">
-    <span class="loc">BASED IN KHK, KHON KAEN — TH</span>
-    <span class="role-tag">/// <span>FULL-STACK DEV</span> + DESIGNER</span>
-  </div>
-
-  <div class="scroll-ind">SCROLL</div>
-</section>
-
-<!-- ══════ CINEMATIC DIVIDER ══════ -->
-<div style="position:relative;width:100%;height:100vh;overflow:hidden;border-top:1px solid var(--border);">
-  <img src="assets/Makima.gif" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:contrast(1.05) saturate(.9);">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.55) 0%,transparent 25%,transparent 65%,rgba(8,8,8,.7) 100%);pointer-events:none;"></div>
-  <div style="position:absolute;bottom:2.2rem;left:2.5rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;color:rgba(255,255,255,.25);">/// SCROLL TO CONTINUE</div>
 </div>
 
 <!-- ══════ ABOUT ══════ -->
 <section class="section" id="about">
   <div class="sh">
     <div class="sh-num">01</div>
-    <div class="sh-title">ABOUT ME</div>
+    <div class="sh-title">ABOUT SOJJYUU</div>
     <div class="sh-line"></div>
   </div>
-
-  <div style="margin-bottom:3.5rem;">
-    <div style="font-family:var(--display);font-size:clamp(3rem,8vw,6.5rem);line-height:.92;letter-spacing:-.01em;color:var(--white);display:block;">I BUILD THINGS</div>
-    <div style="font-family:var(--display);font-size:clamp(3rem,8vw,6.5rem);line-height:.92;-webkit-text-stroke:1.5px rgba(242,242,242,.22);color:transparent;display:block;">THAT ACTUALLY WORK.</div>
-    <a href="#projects" style="display:inline-flex;align-items:center;gap:10px;margin-top:1.8rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;border:1px solid rgba(242,242,242,.28);padding:10px 22px;color:var(--white);text-decoration:none;transition:background .2s,color .2s;" onmouseenter="this.style.background='#f2f2f2';this.style.color='#080808';" onmouseleave="this.style.background='transparent';this.style.color='#f2f2f2';">VIEW MY PROJECTS *</a>
-  </div>
-
-  <div style="display:grid;grid-template-columns:260px 1fr;gap:3rem;padding-top:3rem;border-top:1px solid var(--border);">
-    <div style="display:flex;flex-direction:column;gap:1rem;">
-      <img src="assets/Makima.jpeg" alt="Sojjyuu" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;filter:grayscale(15%) contrast(1.05);border:1px solid rgba(255,255,255,.08);">
-      <div style="font-family:var(--mono);font-size:.52rem;color:rgba(255,255,255,.2);letter-spacing:.12em;text-align:center;">SOJJYUU · KHK, TH</div>
+  <div class="about-grid">
+    <div>
+      <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--sakura);margin-bottom:1rem;">ABOUT SOJJYUU</div>
+      <div style="font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--gray);letter-spacing:.04em;">
+        Hey — I'm <span style="color:var(--ocean);">Sojjyuu</span>, a developer + designer based in <span style="color:var(--ocean);">Khon Kaen, TH</span>. I love building things that are both visually sharp and actually functional. Passionate about UI/UX and side projects of all kinds — from web apps to bots that make life easier. Heavily inspired by anime, especially the Persona series — hence the aesthetic.
+      </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:2.5rem;">
-      <div>
-        <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--sakura);margin-bottom:1rem;">ABOUT SOJJYUU</div>
-        <div style="font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--gray);letter-spacing:.04em;">
-          Hey — I'm <span style="color:var(--ocean);">Sojjyuu</span>, a developer + designer based in <span style="color:var(--ocean);">Khon Kaen, TH</span>. I love building things that are both visually sharp and actually functional. Passionate about UI/UX and side projects of all kinds — from web apps to bots that make life easier. Heavily inspired by anime, especially the Persona series — hence the aesthetic.
-        </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--sakura);margin-bottom:1rem;">APPROACH &amp; MINDSET</div>
+      <div style="font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--gray);letter-spacing:.04em;">
+        I believe <span style="color:var(--ocean);">good design has to come from good code</span> — every project I work on, I care about both the visual details and the logic behind it. I thrive on finding <span style="color:var(--ocean);">"unexpected solutions"</span> and I'm never afraid to experiment with new tools, stacks, or aesthetics I haven't tried before.
       </div>
+    </div>
 
-      <div>
-        <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--sakura);margin-bottom:1rem;">APPROACH &amp; MINDSET</div>
-        <div style="font-family:var(--mono);font-size:.72rem;line-height:2;color:var(--gray);letter-spacing:.04em;">
-          I believe <span style="color:var(--ocean);">good design has to come from good code</span> — every project I work on, I care about both the visual details and the logic behind it. I thrive on finding <span style="color:var(--ocean);">"unexpected solutions"</span> and I'm never afraid to experiment with new tools, stacks, or aesthetics I haven't tried before.
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">STATUS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--sakura);">ACTIVE</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">LOCATION</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">KHON KAEN, TH</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">COMMITS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">37+</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">MAIN STACK</span><span style="font-family:var(--mono);font-size:.62rem;color:#f2f2f2;">HTML · JS · Python</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">INTERESTS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--sakura);">Dev · Design · Anime</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">OPEN TO</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">Collabs &amp; Opps</span></div>
-      </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">STATUS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--sakura);">ACTIVE</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">LOCATION</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">KHON KAEN, TH</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">COMMITS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">37+</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">MAIN STACK</span><span style="font-family:var(--mono);font-size:.62rem;color:#f2f2f2;">HTML · JS · Python</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem .6rem 0;"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">INTERESTS</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--sakura);">Dev · Design · Anime</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 .6rem 1rem;"><span style="font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.25);letter-spacing:.1em;">OPEN TO</span><span style="font-family:var(--mono);font-size:.62rem;color:var(--ocean);">Collabs &amp; Opps</span></div>
     </div>
   </div>
 </section>
@@ -406,14 +456,14 @@ footer>*{position:relative;z-index:1;}
     <div class="sh-line"></div>
   </div>
   <div class="proj-grid">
-    <div class="pc" onclick="window.open('https://sojjyuu.github.io','_blank')">
+    <div class="pc" onclick="window.open('https://sojjyuu.github.io','_blank')" role="link" tabindex="0" aria-label="Personal website project - Persona 3 style portfolio">
       <div class="pc-n">PROJECT // 01 · FEATURED</div>
       <div class="pc-t">PERSONAL WEBSITE</div>
       <p class="pc-d">Persona 3 style portfolio — Brutalist typography + anime aesthetic. Designed & built from scratch.</p>
       <div class="pc-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
       <div class="pc-arrow">→</div>
     </div>
-    <div class="pc" style="opacity:.7;cursor:default;">
+    <div class="pc" style="opacity:.7;cursor:default;" aria-disabled="true">
       <div class="pc-n" style="display:flex;align-items:center;gap:.7rem;">PROJECT // 02 <span style="font-family:var(--mono);font-size:.52rem;color:var(--sakura);border:1px solid var(--sakura);padding:2px 8px;letter-spacing:.12em;animation:blink 2s infinite;">UNDER CONSTRUCTION</span></div>
       <div class="pc-t">DISCORD BOT</div>
       <p class="pc-d" style="color:rgba(255,255,255,.25);">Work in progress — stay tuned.</p>
@@ -431,9 +481,9 @@ footer>*{position:relative;z-index:1;}
     <div class="sh-line"></div>
   </div>
   <div class="gh-wrap">
-    <div class="gh-ico">⌨️</div>
+    <div class="gh-ico" aria-hidden="true">⌨️</div>
     <div>
-      <a class="gh-url" href="https://github.com/Sojjyuu" target="_blank" rel="noopener">github.com/Sojjyuu</a>
+      <a class="gh-url" href="https://github.com/Sojjyuu" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">github.com/Sojjyuu</a>
       <div class="gh-desc">Source code, experiments, และ projects ทั้งหมด — personal website, discord bot และอีกเยอะ</div>
       <div class="gh-chip">37 COMMITS &amp; COUNTING →</div>
     </div>
@@ -448,23 +498,23 @@ footer>*{position:relative;z-index:1;}
     <div class="sh-line"></div>
   </div>
   <div class="soc-grid">
-    <a class="sc" href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener">
-      <div class="sc-ico" style="background:linear-gradient(135deg,#833AB4,#E1306C);">📷</div>
+    <a class="sc" href="https://www.instagram.com/smth_yu/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram @smth_yu">
+      <div class="sc-ico" style="background:linear-gradient(135deg,#833AB4,#E1306C);" aria-hidden="true">📷</div>
       <div><div class="sc-p">INSTAGRAM</div><div class="sc-h">@smth_yu</div></div>
     </a>
-    <a class="sc" href="https://twitter.com/sojjyuu" target="_blank" rel="noopener">
-      <div class="sc-ico" style="background:#1DA1F2;">🐦</div>
+    <a class="sc" href="https://twitter.com/sojjyuu" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter @sojjyuu">
+      <div class="sc-ico" style="background:#1DA1F2;" aria-hidden="true">🐦</div>
       <div><div class="sc-p">TWITTER / X</div><div class="sc-h">@sojjyuu</div></div>
     </a>
-    <a class="sc" href="https://github.com/Sojjyuu" target="_blank" rel="noopener">
-      <div class="sc-ico" style="background:#1a1a1a;border:1px solid rgba(255,255,255,.15);">🐙</div>
+    <a class="sc" href="https://github.com/Sojjyuu" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile Sojjyuu">
+      <div class="sc-ico" style="background:#1a1a1a;border:1px solid rgba(255,255,255,.15);" aria-hidden="true">🐙</div>
       <div><div class="sc-p">GITHUB</div><div class="sc-h">Sojjyuu</div></div>
     </a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <div class="f-name">SOJJ<span>YUU</span></div>
   <div class="f-copy">© 2025 SOJJYUU — BUILT WITH PERSONA ENERGY</div>
 </footer>

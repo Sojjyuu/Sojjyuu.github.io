@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <meta name="description" content="A fast, responsive calculator app. Perform basic arithmetic operations with a modern interface. Supports keyboard input.">
+  <meta name="keywords" content="calculator, math, arithmetic, online calculator, fast calculator">
+  <meta name="author" content="Sojjyuu">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Calculator">
+  <meta property="og:description" content="A responsive calculator app with keyboard support and clean interface.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculator">
+  <title>Calculator - Fast & Responsive</title>
   <style>
     body {
       margin: 0;
@@ -91,6 +100,11 @@
         0 2px 4px rgba(255, 255, 255, 0.8);
     }
 
+    .btn:focus {
+      outline: 2px solid #667eea;
+      outline-offset: 2px;
+    }
+
     .btn.operator {
       background: linear-gradient(145deg, #007acc, #005b99);
       color: white;
@@ -146,35 +160,42 @@
 <body>
   <div class="calculator-container">
     <h1>Calculator</h1>
-    <div class="calculator">
-      <input type="text" class="display" id="display" readonly>
+    <div class="calculator" role="application" aria-label="Calculator application">
+      <input 
+        type="text" 
+        class="display" 
+        id="display" 
+        readonly 
+        aria-label="Calculator display showing current number or result"
+        aria-live="polite"
+      >
       <div class="buttons">
-        <button class="btn clear" onclick="clearCalculator()">C</button>
-        <button class="btn" onclick="deleteLast()">⌫</button>
-        <button class="btn operator" onclick="inputOperator('/')">/</button>
-        <button class="btn operator" onclick="inputOperator('*')">×</button>
+        <button class="btn clear" onclick="clearCalculator()" aria-label="Clear calculator">C</button>
+        <button class="btn" onclick="deleteLast()" aria-label="Delete last digit">⌫</button>
+        <button class="btn operator" onclick="inputOperator('/')" aria-label="Division operator">/</button>
+        <button class="btn operator" onclick="inputOperator('*')" aria-label="Multiplication operator">×</button>
         
-        <button class="btn" onclick="inputNumber('7')">7</button>
-        <button class="btn" onclick="inputNumber('8')">8</button>
-        <button class="btn" onclick="inputNumber('9')">9</button>
-        <button class="btn operator" onclick="inputOperator('-')">-</button>
+        <button class="btn" onclick="inputNumber('7')" aria-label="Number 7">7</button>
+        <button class="btn" onclick="inputNumber('8')" aria-label="Number 8">8</button>
+        <button class="btn" onclick="inputNumber('9')" aria-label="Number 9">9</button>
+        <button class="btn operator" onclick="inputOperator('-')" aria-label="Subtraction operator">-</button>
         
-        <button class="btn" onclick="inputNumber('4')">4</button>
-        <button class="btn" onclick="inputNumber('5')">5</button>
-        <button class="btn" onclick="inputNumber('6')">6</button>
-        <button class="btn operator" onclick="inputOperator('+')">+</button>
+        <button class="btn" onclick="inputNumber('4')" aria-label="Number 4">4</button>
+        <button class="btn" onclick="inputNumber('5')" aria-label="Number 5">5</button>
+        <button class="btn" onclick="inputNumber('6')" aria-label="Number 6">6</button>
+        <button class="btn operator" onclick="inputOperator('+')" aria-label="Addition operator">+</button>
         
-        <button class="btn" onclick="inputNumber('1')">1</button>
-        <button class="btn" onclick="inputNumber('2')">2</button>
-        <button class="btn" onclick="inputNumber('3')">3</button>
-        <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+        <button class="btn" onclick="inputNumber('1')" aria-label="Number 1">1</button>
+        <button class="btn" onclick="inputNumber('2')" aria-label="Number 2">2</button>
+        <button class="btn" onclick="inputNumber('3')" aria-label="Number 3">3</button>
+        <button class="btn equals" onclick="calculate()" aria-label="Calculate result">=</button>
         
-        <button class="btn zero" onclick="inputNumber('0')">0</button>
-        <button class="btn" onclick="inputDecimal()">.</button>
+        <button class="btn zero" onclick="inputNumber('0')" aria-label="Number 0">0</button>
+        <button class="btn" onclick="inputDecimal()" aria-label="Decimal point">.</button>
       </div>
     </div>
   </div>
 
-  <script src="calculator.js"></script>
+  <script src="calculator.js" defer></script>
 </body>
 </html>
